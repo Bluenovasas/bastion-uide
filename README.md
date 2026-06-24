@@ -81,7 +81,9 @@ bastion-uide/
 │   ├── script.js
 │   └── README.md
 ├── docs/          Diagrama de flujo en Raptor
-│   └── bastion_diagrama.rap
+│   ├── bastion_diagrama.rap        Diagrama editable (RAPTOR)
+│   ├── imagen_diagrama_raptor.png  Imagen del diagrama
+│   └── README.md
 └── videos/        Videos explicativos del entregable
     ├── video1_diagrama_flujo.mp4
     └── video2_codigo_funcional.mp4
