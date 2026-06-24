@@ -60,6 +60,13 @@ python3 bastion.py
 
 No requiere instalar dependencias externas: usa solo la biblioteca estandar de Python.
 
+## Prototipo de interfaz
+
+La carpeta `prototipo/` contiene la maqueta de alta fidelidad de la pantalla
+principal de BASTION (HTML, CSS y JavaScript), disenada en el Aprendizaje
+Autonomo 1. Para verla, descargue la carpeta y abra `prototipo/index.html` con
+doble clic en el navegador. Mas detalles en `prototipo/README.md`.
+
 ## Estructura del repositorio
 
 ```
@@ -68,6 +75,11 @@ bastion-uide/
 ├── README.md      Documentacion del proyecto
 ├── LICENSE        Licencia MIT
 ├── .gitignore     Exclusiones de Git
+├── prototipo/     Prototipo de interfaz de alta fidelidad (HTML, CSS y JS)
+│   ├── index.html
+│   ├── estilos.css
+│   ├── script.js
+│   └── README.md
 ├── docs/          Diagrama de flujo en Raptor
 │   └── bastion_diagrama.rap
 └── videos/        Videos explicativos del entregable
