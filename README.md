@@ -60,6 +60,15 @@ python3 bastion.py
 
 No requiere instalar dependencias externas: usa solo la biblioteca estandar de Python.
 
+## Diagrama de flujo
+
+El proceso principal de BASTION (autenticacion con la contrasena maestra mediante
+un bucle con contador de intentos y generacion de una contrasena con un bucle)
+esta modelado en RAPTOR. El diagrama editable (`bastion_diagrama.rap`) y su imagen
+estan en la carpeta `docs/`.
+
+![Diagrama de flujo de BASTION en Raptor](docs/imagen_diagrama_raptor.png)
+
 ## Prototipo de interfaz
 
 La carpeta `prototipo/` contiene la maqueta de alta fidelidad de la pantalla
@@ -84,9 +93,8 @@ bastion-uide/
 │   ├── bastion_diagrama.rap        Diagrama editable (RAPTOR)
 │   ├── imagen_diagrama_raptor.png  Imagen del diagrama
 │   └── README.md
-└── videos/        Videos explicativos del entregable
-    ├── video1_diagrama_flujo.mp4
-    └── video2_codigo_funcional.mp4
+└── videos/        Enlaces a los videos del entregable (Loom)
+    └── README.md
 ```
 
 ## Casos de uso implementados
@@ -99,6 +107,7 @@ bastion-uide/
 | CU-04 | Agregar credencial a la boveda |
 | CU-06 | Buscar credencial por nombre |
 | CU-07 | Ver todas las credenciales organizadas |
+| Extra | Cambiar la contrasena maestra de la boveda |
 
 ## Videos del entregable
 
@@ -108,11 +117,11 @@ bastion-uide/
 > enlazan a continuacion. Cada enlace se abre directamente desde el navegador,
 > sin necesidad de iniciar sesion.
 
-| Video | Contenido | Enlace |
-|-------|-----------|--------|
-| Video 0 | Explicacion general del repositorio y el prototipo | https://www.loom.com/share/730d6ef14cd249f590bf2939a9e092c6 |
-| Video 1 | Explicacion del diagrama de flujo en Raptor | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
-| Video 2 | Demostracion del codigo Python en funcionamiento | https://www.loom.com/share/a2bdcf658b0049ec8ab9f98a79a68b6f |
+| Video | Contenido | Duracion | Enlace |
+|-------|-----------|----------|--------|
+| Video 0 | Explicacion general del repositorio y el prototipo | 2:13 min | https://www.loom.com/share/730d6ef14cd249f590bf2939a9e092c6 |
+| Video 1 | Explicacion del diagrama de flujo en Raptor | 2:41 min | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
+| Video 2 | Demostracion del codigo Python en funcionamiento | 4:24 min | https://www.loom.com/share/a2bdcf658b0049ec8ab9f98a79a68b6f |
 
 ## Licencia
 
