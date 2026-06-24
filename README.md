@@ -100,10 +100,10 @@ bastion-uide/
 
 ## Videos del entregable
 
-| Video | Contenido | Duracion |
-|-------|-----------|----------|
-| Video 1 | Explicacion del diagrama de flujo Raptor | Maximo 5 minutos |
-| Video 2 | Demostracion del codigo Python en funcionamiento | Variable |
+| Video | Contenido | Enlace |
+|-------|-----------|--------|
+| Video 1 | Explicacion del diagrama de flujo en Raptor | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
+| Video 2 | Demostracion del codigo Python en funcionamiento | (pendiente) |
 
 ## Licencia
 
