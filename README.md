@@ -109,7 +109,7 @@ bastion-uide/
 | Video | Contenido | Enlace |
 |-------|-----------|--------|
 | Video 1 | Explicacion del diagrama de flujo en Raptor | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
-| Video 2 | Demostracion del codigo Python en funcionamiento | (pendiente) |
+| Video 2 | Demostracion del codigo Python en funcionamiento | https://www.loom.com/share/a2bdcf658b0049ec8ab9f98a79a68b6f |
 
 ## Licencia
 
