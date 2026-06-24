@@ -100,6 +100,12 @@ bastion-uide/
 
 ## Videos del entregable
 
+> Nota para la evaluacion: los videos del entregable se entregan como enlaces y
+> no como archivos subidos al repositorio. GitHub limita el tamano de cada
+> archivo a 100 MB y los videos lo superan, por lo que se alojan en Loom y se
+> enlazan a continuacion. Cada enlace se abre directamente desde el navegador,
+> sin necesidad de iniciar sesion.
+
 | Video | Contenido | Enlace |
 |-------|-----------|--------|
 | Video 1 | Explicacion del diagrama de flujo en Raptor | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
