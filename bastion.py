@@ -8,15 +8,17 @@ Docente: Msc. Lilian Aman
 Carrera: Ingenieria en Ciberseguridad
 Universidad: UIDE - Universidad Internacional del Ecuador
 Paralelo: 1-CIB-1A
-Aprendizaje Autonomo 2 - Semana 6 (Bucles)
-Fecha: 21 de junio de 2026
+Proyecto Integrador - Logica de Programacion
+Fecha: 28 de junio de 2026
 
 Descripcion:
     BASTION es una boveda personal de credenciales de linea de comandos.
     Permite crear una boveda protegida por una contrasena maestra, generar
-    contrasenas seguras y guardarlas, buscarlas y listarlas. Implementa el
-    diseno realizado en el Aprendizaje Autonomo 1 aplicando las estructuras
-    repetitivas (while y for) y de seleccion (if / elif / else) de la semana 6.
+    contrasenas seguras y guardarlas, buscarlas y listarlas. Como proyecto
+    integrador, reune los contenidos de las cuatro unidades de la asignatura:
+    estructuras de decision (if / elif / else), estructuras repetitivas
+    (while y for), funciones, y estructuras de datos (tuplas, listas y
+    diccionarios).
 
     Esta version academica usa solo la biblioteca estandar de Python. La
     contrasena maestra se protege con un hash SHA-256 y las credenciales se
@@ -34,6 +36,7 @@ import random    # Elige caracteres al azar para construir la contrasena.
 import string    # Provee los conjuntos de caracteres (letras, digitos).
 import getpass   # Lee la contrasena por teclado sin mostrarla en pantalla.
 import sys       # Permite cerrar el programa de forma limpia.
+from datetime import datetime   # Marca de fecha y hora para el historial de accesos.
 
 
 # ============================================================
@@ -44,16 +47,17 @@ LONGITUD_MINIMA = 8              # Longitud minima permitida para una contrasena
 LONGITUD_MAXIMA = 64             # Longitud maxima permitida para una contrasena.
 MAX_INTENTOS = 3                 # Numero maximo de intentos de inicio de sesion.
 
-# DICCIONARIO: categorias predefinidas. La clave es el numero del menu y el
-# valor es el nombre de la categoria. Se basan en el prototipo del Autonomo 1.
-CATEGORIAS = {
-    "1": "Redes sociales",
-    "2": "Banca y finanzas",
-    "3": "Trabajo",
-    "4": "Correo",
-    "5": "Claves API / SSH",
-    "6": "Otros",
-}
+# TUPLA (Unidad 4): coleccion inmutable con las categorias permitidas. Se usa una
+# tupla porque las categorias son fijas y no deben cambiar durante la ejecucion.
+# Se basan en el prototipo del Autonomo 1.
+CATEGORIAS = (
+    "Redes sociales",
+    "Banca y finanzas",
+    "Trabajo",
+    "Correo",
+    "Claves API / SSH",
+    "Otros",
+)
 
 
 # ============================================================
@@ -142,13 +146,15 @@ def preguntar_si_no(mensaje):
             print("  Respuesta no valida. Escriba 's' para si o 'n' para no.")
 
 
-def pedir_entero(mensaje, minimo, maximo):
+def pedir_entero(mensaje, minimo=LONGITUD_MINIMA, maximo=LONGITUD_MAXIMA):
     """Solicita un numero entero dentro de un rango validando con WHILE.
 
+    Usa PARAMETROS POR DEFECTO (Unidad 4): si no se indican, el rango permitido
+    es el de la longitud de contrasena (LONGITUD_MINIMA a LONGITUD_MAXIMA).
     Parametros:
         mensaje (str): texto a mostrar.
-        minimo (int): valor minimo aceptado.
-        maximo (int): valor maximo aceptado.
+        minimo (int): valor minimo aceptado (por defecto LONGITUD_MINIMA).
+        maximo (int): valor maximo aceptado (por defecto LONGITUD_MAXIMA).
     Retorna:
         int: el numero validado.
     """
@@ -235,13 +241,30 @@ def crear_boveda():
         # Si paso ambas validaciones, se sale del bucle.
         break
 
-    # DICCIONARIO: estructura inicial de la boveda con credenciales vacias.
+    # ESTRUCTURAS DE DATOS: la boveda es un DICCIONARIO; 'credenciales' es otro
+    # diccionario y 'historial' es una LISTA (Unidad 4) para registrar los accesos.
     boveda = {
         "hash_maestra": calcular_hash(clave),
         "credenciales": {},
+        "historial": [],
     }
     guardar_boveda(boveda)
     print("\nBoveda creada correctamente. Ya puede iniciar sesion.")
+
+
+def registrar_acceso(boveda, evento="Acceso concedido"):
+    """Registra un evento de acceso en el historial de la boveda.
+
+    Demuestra una FUNCION CON PARAMETRO POR DEFECTO (Unidad 4): si no se indica
+    el evento, se asume "Acceso concedido".
+    Parametros:
+        boveda (dict): la boveda abierta en memoria.
+        evento (str): descripcion del evento (parametro opcional con valor por defecto).
+    """
+    # LISTA: se agrega al historial un registro con la fecha y hora actual.
+    momento = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    boveda["historial"].append({"fecha": momento, "evento": evento})
+    guardar_boveda(boveda)
 
 
 def iniciar_sesion():
@@ -254,6 +277,9 @@ def iniciar_sesion():
     """
     print("\n=== INICIAR SESION ===")
     boveda = cargar_boveda()
+    # Compatibilidad: si la boveda no tiene historial (version previa), se crea.
+    if "historial" not in boveda:
+        boveda["historial"] = []
 
     # CONTADOR de intentos fallidos, inicia en cero.
     intentos = 0
@@ -264,6 +290,7 @@ def iniciar_sesion():
         # Se compara el hash de lo ingresado contra el hash guardado.
         if calcular_hash(clave) == boveda["hash_maestra"]:
             print("\nAcceso concedido. Bienvenido a su boveda.")
+            registrar_acceso(boveda)   # LISTA: se guarda este acceso en el historial.
             return boveda  # Clave correcta: se devuelve la boveda y se sale.
         else:
             # CONTADOR: se incrementa en uno por cada intento fallido.
@@ -350,16 +377,17 @@ def agregar_credencial(boveda, contrasena_sugerida=None):
 
     # Menu numerado de categorias predefinidas.
     print("\nSeleccione una categoria:")
-    # FOR para iterar el DICCIONARIO de categorias y mostrarlas en orden.
-    for numero in CATEGORIAS:
-        print("  [" + numero + "]", CATEGORIAS[numero])
+    # FOR con enumerate para recorrer la TUPLA de categorias (Unidad 4) numerada.
+    for indice, nombre in enumerate(CATEGORIAS, start=1):
+        print("  [" + str(indice) + "]", nombre)
 
-    # WHILE: insiste hasta elegir una categoria valida del diccionario.
+    # WHILE: insiste hasta elegir una categoria valida de la tupla.
     while True:
         opcion_categoria = input("Opcion de categoria: ").strip()
-        # OPERADOR DE PERTENENCIA 'in' para validar contra las claves del diccionario.
-        if opcion_categoria in CATEGORIAS:
-            categoria = CATEGORIAS[opcion_categoria]
+        # OPERADORES RELACIONALES: el numero debe estar dentro del rango de la tupla.
+        if opcion_categoria.isdigit() and 1 <= int(opcion_categoria) <= len(CATEGORIAS):
+            # Se accede por INDICE a la tupla (se resta 1 porque empieza en 0).
+            categoria = CATEGORIAS[int(opcion_categoria) - 1]
             break
         else:
             print("  Opcion de categoria no valida.")
@@ -452,6 +480,28 @@ def ver_credenciales(boveda):
     print("Total de credenciales:", total)
 
 
+def ver_historial(boveda):
+    """Muestra el historial de accesos guardado en la boveda.
+
+    Recorre una LISTA (Unidad 4) de registros con un bucle FOR y enumerate.
+    Parametros:
+        boveda (dict): la boveda abierta en memoria.
+    """
+    print("\n=== HISTORIAL DE ACCESOS ===")
+    # LISTA: registros de acceso acumulados en la boveda.
+    historial = boveda["historial"]
+
+    # IF: si la lista esta vacia, se informa y se sale.
+    if len(historial) == 0:
+        print("Aun no hay accesos registrados.")
+        return
+
+    # FOR con enumerate para numerar cada registro de la LISTA.
+    for numero, registro in enumerate(historial, start=1):
+        print("  " + str(numero) + ".", registro["fecha"], "-", registro["evento"])
+    print("\nTotal de accesos registrados:", len(historial))
+
+
 def cambiar_contrasena_maestra(boveda):
     """CU adicional: Cambia la contrasena maestra de la boveda.
 
@@ -504,7 +554,8 @@ def menu_principal(boveda):
         print("[3] Buscar credencial por nombre")
         print("[4] Ver todas las credenciales")
         print("[5] Cambiar contrasena maestra")
-        print("[6] Cerrar sesion")
+        print("[6] Ver historial de accesos")
+        print("[7] Cerrar sesion")
         opcion = input("Seleccione una opcion: ").strip()
 
         # IF / ELIF / ELSE: estructura de seleccion del menu principal.
@@ -522,10 +573,12 @@ def menu_principal(boveda):
         elif opcion == "5":
             cambiar_contrasena_maestra(boveda)
         elif opcion == "6":
+            ver_historial(boveda)
+        elif opcion == "7":
             print("\nSesion cerrada. La boveda quedo guardada y protegida.")
             break
         else:
-            print("  Opcion no valida. Elija un numero del 1 al 6.")
+            print("  Opcion no valida. Elija un numero del 1 al 7.")
 
 
 def main():

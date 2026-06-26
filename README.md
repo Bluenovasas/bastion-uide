@@ -40,6 +40,7 @@ contrasena maestra cuyo hash se almacena con SHA-256, sin depender de la nube.
 | Buscar credencial | Localiza una credencial por nombre, sin distinguir mayusculas |
 | Ver credenciales | Lista todas las credenciales con la contrasena enmascarada |
 | Cambiar contrasena maestra | Sustituye la clave maestra previa validacion |
+| Ver historial de accesos | Lista los accesos registrados con su fecha y hora |
 
 ## Contenido del repositorio
 
@@ -71,6 +72,9 @@ de la tecnologia, cronograma y conclusiones) esta en:
 | Diccionarios | Categorias y almacenamiento de credenciales |
 | Operadores relacionales y logicos | Validaciones (and, or, not, in) |
 | Contadores (+=) | Conteo de intentos, tipos y credenciales |
+| Tuplas | Categorias predefinidas (CATEGORIAS) |
+| Listas | Historial de accesos con fecha y hora |
+| Funciones con parametros por defecto | registrar_acceso, pedir_entero |
 
 ## Como ejecutar
 
