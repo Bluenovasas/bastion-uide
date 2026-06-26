@@ -1,42 +1,63 @@
 # BASTION - Boveda Personal de Credenciales
 
-Aprendizaje Autonomo 2 - Logica de Programacion
+Proyecto Integrador - Logica de Programacion - UIDE
 
-## Datos academicos
+> Tema del proyecto integrador: **El impacto de las nuevas tecnologias en la
+> sociedad: desarrollo y proyeccion de soluciones informaticas.**
+
+## Datos del proyecto
 
 | Campo | Valor |
 |-------|-------|
-| Autor | David Alexander Benz Zambrano |
+| Nombre del proyecto | BASTION - Boveda Personal de Credenciales |
+| Integrante | David Alexander Benz Zambrano (trabajo individual) |
 | Cedula | 1726678673 |
+| Correo institucional | dabezza@uide.edu.ec |
 | Materia | Logica de Programacion |
 | Docente | Msc. Lilian Aman |
 | Carrera | Ingenieria en Ciberseguridad |
 | Universidad | Universidad Internacional del Ecuador (UIDE) |
 | Paralelo | 1-CIB-1A |
-| Semana | 6 - Bucles (while y for) |
-| Fecha de entrega | 21 de junio de 2026 |
+| Fecha de entrega | 28 de junio de 2026 |
 
-## Descripcion del proyecto
+## Objetivo del sistema
 
-BASTION es una boveda personal de credenciales desarrollada en Python que permite
-a un usuario generar contrasenas seguras y almacenarlas localmente, protegidas por
-una contrasena maestra. El proyecto fue disenado en el Aprendizaje Autonomo 1 y se
-implementa en este Aprendizaje Autonomo 2 aplicando las estructuras repetitivas
-(bucles while y for) y de seleccion (if / elif / else) vistas en clase.
+Desarrollar una solucion informatica de gestion personal de credenciales que
+centralice y proteja las contrasenas del usuario en un entorno local, aplicando
+las estructuras de programacion y los fundamentos de seguridad vistos en las
+cuatro unidades de la asignatura. BASTION genera contrasenas seguras, las
+organiza por categorias y las resguarda en una boveda local protegida por una
+contrasena maestra cuyo hash se almacena con SHA-256, sin depender de la nube.
 
-En esta version academica, la contrasena maestra se protege con un hash SHA-256 y
-las credenciales se guardan en un archivo JSON local (`boveda.json`), sin envio a
-ningun servidor. El cifrado autenticado AES-256-GCM descrito en el diseno del
-Autonomo 1 queda planificado como evolucion del producto.
+## Descripcion de funcionalidades
 
-## Arquitectura
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Crear boveda | Define la contrasena maestra y crea la boveda local |
+| Iniciar sesion | Valida la contrasena maestra (maximo 3 intentos y bloqueo) |
+| Generar contrasena | Crea una clave segura segun longitud y tipos de caracteres, con indicador de fortaleza |
+| Agregar credencial | Registra un servicio con su categoria, usuario y contrasena |
+| Buscar credencial | Localiza una credencial por nombre, sin distinguir mayusculas |
+| Ver credenciales | Lista todas las credenciales con la contrasena enmascarada |
+| Cambiar contrasena maestra | Sustituye la clave maestra previa validacion |
 
-El programa esta organizado en 3 capas, segun el diseno del Autonomo 1:
+## Contenido del repositorio
 
-1. Capa de presentacion: menus de texto e interaccion con el usuario (CLI).
-2. Capa de logica de negocio: generador de contrasenas, validaciones y bucles.
-3. Capa de almacenamiento: archivo JSON local con el hash SHA-256 de la
-   contrasena maestra.
+| Carpeta / archivo | Contenido |
+|-------------------|-----------|
+| [`bastion.py`](bastion.py) | Codigo fuente completo del sistema (Python) |
+| [`documento/`](documento/) | Documento del proyecto en PDF |
+| [`diagramas/`](diagramas/) | Diagramas de funcionalidad (casos de uso, flujo) y de arquitectura |
+| [`prototipo/`](prototipo/) | Prototipo de interfaz de alta fidelidad (HTML, CSS y JS) |
+| [`autonomos/`](autonomos/) | Aprendizajes autonomos del periodo, en carpetas |
+| [`videos/`](videos/) | Enlaces a los videos explicativos (Loom) |
+
+## Documento del proyecto
+
+El documento completo (introduccion, descripcion del problema, relacion con los
+contenidos de la asignatura, explicacion del sistema, reflexion sobre el impacto
+de la tecnologia, cronograma y conclusiones) esta en:
+[`documento/Proyecto_Integrador_BASTION.pdf`](documento/Proyecto_Integrador_BASTION.pdf)
 
 ## Estructuras de programacion aplicadas
 
@@ -48,8 +69,7 @@ El programa esta organizado en 3 capas, segun el diseno del Autonomo 1:
 | for con .items() | Busqueda y listado de credenciales |
 | if / elif / else | Menus, validaciones y calculo de fortaleza |
 | Diccionarios | Categorias y almacenamiento de credenciales |
-| Operadores relacionales | Validacion de longitudes y coincidencias |
-| Operadores logicos | and, or, not e in en validaciones |
+| Operadores relacionales y logicos | Validaciones (and, or, not, in) |
 | Contadores (+=) | Conteo de intentos, tipos y credenciales |
 
 ## Como ejecutar
@@ -60,68 +80,15 @@ python3 bastion.py
 
 No requiere instalar dependencias externas: usa solo la biblioteca estandar de Python.
 
-## Diagrama de flujo
-
-El proceso principal de BASTION (autenticacion con la contrasena maestra mediante
-un bucle con contador de intentos y generacion de una contrasena con un bucle)
-esta modelado en RAPTOR. El diagrama editable (`bastion_diagrama.rap`) y su imagen
-estan en la carpeta `docs/`.
-
-![Diagrama de flujo de BASTION en Raptor](docs/imagen_diagrama_raptor.png)
-
-## Prototipo de interfaz
-
-La carpeta `prototipo/` contiene la maqueta de alta fidelidad de la pantalla
-principal de BASTION (HTML, CSS y JavaScript), disenada en el Aprendizaje
-Autonomo 1. Para verla, descargue la carpeta y abra `prototipo/index.html` con
-doble clic en el navegador. Mas detalles en `prototipo/README.md`.
-
-## Estructura del repositorio
-
-```
-bastion-uide/
-├── bastion.py     Codigo fuente principal
-├── README.md      Documentacion del proyecto
-├── LICENSE        Licencia MIT
-├── .gitignore     Exclusiones de Git
-├── prototipo/     Prototipo de interfaz de alta fidelidad (HTML, CSS y JS)
-│   ├── index.html
-│   ├── estilos.css
-│   ├── script.js
-│   └── README.md
-├── docs/          Diagrama de flujo en Raptor
-│   ├── bastion_diagrama.rap        Diagrama editable (RAPTOR)
-│   ├── imagen_diagrama_raptor.png  Imagen del diagrama
-│   └── README.md
-└── videos/        Enlaces a los videos del entregable (Loom)
-    └── README.md
-```
-
-## Casos de uso implementados
-
-| Caso de uso | Descripcion |
-|-------------|-------------|
-| CU-01 | Crear boveda nueva con contrasena maestra |
-| CU-02 | Iniciar sesion (desbloquear boveda) |
-| CU-03 | Generar contrasena segura |
-| CU-04 | Agregar credencial a la boveda |
-| CU-06 | Buscar credencial por nombre |
-| CU-07 | Ver todas las credenciales organizadas |
-| Extra | Cambiar la contrasena maestra de la boveda |
-
 ## Videos del entregable
-
-> Nota para la evaluacion: los videos del entregable se entregan como enlaces y
-> no como archivos subidos al repositorio. GitHub limita el tamano de cada
-> archivo a 100 MB y los videos lo superan, por lo que se alojan en Loom y se
-> enlazan a continuacion. Cada enlace se abre directamente desde el navegador,
-> sin necesidad de iniciar sesion.
 
 | Video | Contenido | Duracion | Enlace |
 |-------|-----------|----------|--------|
 | Video 0 | Explicacion general del repositorio y el prototipo | 2:13 min | https://www.loom.com/share/730d6ef14cd249f590bf2939a9e092c6 |
 | Video 1 | Explicacion del diagrama de flujo en Raptor | 2:41 min | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
 | Video 2 | Demostracion del codigo Python en funcionamiento | 4:24 min | https://www.loom.com/share/a2bdcf658b0049ec8ab9f98a79a68b6f |
+
+Los videos se alojan en Loom para no superar el limite de 100 MB por archivo de GitHub.
 
 ## Licencia
 
