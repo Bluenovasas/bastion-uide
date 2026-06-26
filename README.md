@@ -1,24 +1,42 @@
 # BASTION - Boveda Personal de Credenciales
 
-Proyecto Integrador - Logica de Programacion - UIDE
+Gestor personal de credenciales con generador de contrasenas seguras.
+**Proyecto Integrador - Logica de Programacion - UIDE.**
 
 > Tema del proyecto integrador: **El impacto de las nuevas tecnologias en la
 > sociedad: desarrollo y proyeccion de soluciones informaticas.**
 
+---
+
 ## Demo en vivo
 
-La aplicacion funciona en el navegador: el codigo real de `bastion.py` se ejecuta
-con Pyodide (Python sobre WebAssembly), sin servidor. La profe puede entrar,
-usarla y ver en el panel "Consola Python" lo que ocurre por dentro.
+### **https://bluenovasas.github.io/bastion-uide/webapp/**
 
-**https://bluenovasas.github.io/bastion-uide/webapp/**
+La aplicacion funciona en el navegador, sin instalar nada. El codigo real de
+`bastion.py` se ejecuta dentro del navegador mediante Pyodide (Python sobre
+WebAssembly), y un panel "Consola Python" muestra en vivo lo que ocurre por
+dentro. La boveda se guarda en el almacenamiento local del navegador.
+
+## Stack tecnologico
+
+| Componente | Tecnologia |
+|------------|------------|
+| Logica del sistema | **Python 3** (biblioteca estandar) |
+| Interfaz web | **HTML5**, **CSS3**, **JavaScript** |
+| Python en el navegador | **Pyodide** (Python compilado a WebAssembly) |
+| Diagrama de flujo | RAPTOR |
+| Documento | PDF (formato APA 7) |
+| Presentacion | PowerPoint |
+| Control de versiones | **Git** + **GitHub** (commits firmados con GPG) |
+| Publicacion | GitHub Pages |
 
 ## Datos del proyecto
 
 | Campo | Valor |
 |-------|-------|
-| Nombre del proyecto | BASTION - Boveda Personal de Credenciales |
-| Integrante | David Alexander Benz Zambrano (trabajo individual) |
+| Proyecto | BASTION - Boveda Personal de Credenciales |
+| Integrante | David Alexander Benz Zambrano (individual) |
+| Organizacion | Blue Nova SAS |
 | Cedula | 1726678673 |
 | Correo institucional | dabezza@uide.edu.ec |
 | Materia | Logica de Programacion |
@@ -26,73 +44,100 @@ usarla y ver en el panel "Consola Python" lo que ocurre por dentro.
 | Carrera | Ingenieria en Ciberseguridad |
 | Universidad | Universidad Internacional del Ecuador (UIDE) |
 | Paralelo | 1-CIB-1A |
-| Fecha de entrega | 28 de junio de 2026 |
+| Fecha | 28 de junio de 2026 |
 
-## Objetivo del sistema
+## Que es BASTION
 
-Desarrollar una solucion informatica de gestion personal de credenciales que
-centralice y proteja las contrasenas del usuario en un entorno local, aplicando
-las estructuras de programacion y los fundamentos de seguridad vistos en las
-cuatro unidades de la asignatura. BASTION genera contrasenas seguras, las
-organiza por categorias y las resguarda en una boveda local protegida por una
-contrasena maestra cuyo hash se almacena con SHA-256, sin depender de la nube.
+BASTION resuelve un problema cotidiano: una persona administra decenas de
+credenciales y, sin herramientas, cae en practicas inseguras (reutilizar claves,
+usar contrasenas debiles, guardarlas sin cifrar). BASTION genera contrasenas
+seguras, las organiza por categorias y las protege detras de una unica contrasena
+maestra cuyo hash se almacena con SHA-256, sin depender de la nube.
 
-## Descripcion de funcionalidades
+## Arquitectura en tres capas
 
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Crear boveda | Define la contrasena maestra y crea la boveda local |
-| Iniciar sesion | Valida la contrasena maestra (maximo 3 intentos y bloqueo) |
-| Generar contrasena | Crea una clave segura segun longitud y tipos de caracteres, con indicador de fortaleza |
-| Agregar credencial | Registra un servicio con su categoria, usuario y contrasena |
-| Buscar credencial | Localiza una credencial por nombre, sin distinguir mayusculas |
-| Ver credenciales | Lista todas las credenciales con la contrasena enmascarada |
-| Cambiar contrasena maestra | Sustituye la clave maestra previa validacion |
-| Ver historial de accesos | Lista los accesos registrados con su fecha y hora |
+El sistema separa responsabilidades en tres capas, tanto en la version de consola
+como en la web:
 
-## Contenido del repositorio
+1. **Presentacion**: la interfaz (menus de consola en `bastion.py`, o la interfaz
+   web en `webapp/`).
+2. **Logica de negocio**: el generador de contrasenas, las validaciones, el
+   calculo de fortaleza y la busqueda. En la web, esta capa es el mismo
+   `bastion.py` ejecutado con Pyodide.
+3. **Persistencia**: el archivo JSON local (consola) o el almacenamiento del
+   navegador (web).
 
-| Carpeta / archivo | Contenido |
-|-------------------|-----------|
-| [`bastion.py`](bastion.py) | Codigo fuente completo del sistema (Python) |
-| [`webapp/`](webapp/) | Aplicacion web funcional (ejecuta bastion.py con Pyodide) |
-| [`documento/`](documento/) | Documento del proyecto en PDF |
-| [`presentacion/`](presentacion/) | Presentacion final (PowerPoint y PDF) |
-| [`diagramas/`](diagramas/) | Diagramas de funcionalidad (casos de uso, flujo) y de arquitectura |
-| [`prototipo/`](prototipo/) | Prototipo de interfaz de alta fidelidad (HTML, CSS y JS) |
-| [`autonomos/`](autonomos/) | Aprendizajes autonomos del periodo, en carpetas |
-| [`videos/`](videos/) | Enlaces a los videos explicativos (Loom) |
+## La aplicacion web: como usarla
 
-## Documento del proyecto
+Abrir **https://bluenovasas.github.io/bastion-uide/webapp/** en un navegador
+moderno (con conexion a internet la primera vez, para cargar el motor de Python).
 
-El documento completo (introduccion, descripcion del problema, relacion con los
-contenidos de la asignatura, explicacion del sistema, reflexion sobre el impacto
-de la tecnologia, cronograma y conclusiones) esta en:
-[`documento/Proyecto_Integrador_BASTION.pdf`](documento/Proyecto_Integrador_BASTION.pdf)
+1. **Espera la carga**: aparece "Iniciando el motor de Python" durante unos
+   segundos mientras se descarga Pyodide.
+2. **Primera vez - crear boveda**: define una contrasena maestra (minimo 8
+   caracteres) y confirmala. Esa clave protege toda la boveda.
+3. **Siguientes veces - iniciar sesion**: ingresa la contrasena maestra. Tras 3
+   intentos fallidos la boveda se bloquea.
+4. **Generar contrasena**: elige longitud y tipos de caracteres; el sistema crea
+   una clave segura y muestra su fortaleza (Debil, Media o Fuerte).
+5. **Agregar credencial**: registra un servicio con su categoria, usuario y
+   contrasena (puede ser la generada).
+6. **Buscar**: filtra las credenciales por nombre de servicio.
+7. **Ver historial**: muestra los accesos registrados con fecha y hora.
+8. **Consola Python**: el panel de la derecha muestra en vivo cada llamada a
+   Python y su resultado, para evidenciar que la logica corre realmente en Python.
+9. **Bloquear**: cierra la sesion; la boveda queda guardada en el navegador.
 
-## Estructuras de programacion aplicadas
+## La version de consola (CLI)
 
-| Estructura | Donde se aplica |
-|------------|-----------------|
-| while con contador (intentos) | Funcion de inicio de sesion |
-| while True con break | Menus e iteraciones de validacion |
-| for con range() | Generacion de contrasena caracter por caracter |
-| for con .items() | Busqueda y listado de credenciales |
-| if / elif / else | Menus, validaciones y calculo de fortaleza |
-| Diccionarios | Categorias y almacenamiento de credenciales |
-| Operadores relacionales y logicos | Validaciones (and, or, not, in) |
-| Contadores (+=) | Conteo de intentos, tipos y credenciales |
-| Tuplas | Categorias predefinidas (CATEGORIAS) |
-| Listas | Historial de accesos con fecha y hora |
-| Funciones con parametros por defecto | registrar_acceso, pedir_entero |
-
-## Como ejecutar
+El mismo sistema funciona como programa de linea de comandos:
 
 ```
 python3 bastion.py
 ```
 
-No requiere instalar dependencias externas: usa solo la biblioteca estandar de Python.
+No requiere dependencias externas: usa solo la biblioteca estandar de Python
+(`hashlib`, `json`, `os`, `random`, `string`, `getpass`, `sys`, `datetime`).
+
+## Estructuras de programacion (integracion de las 4 unidades)
+
+| Unidad | Contenido | Donde se aplica |
+|--------|-----------|-----------------|
+| 1 | Analisis y diagramas | Casos de uso, flujo (Raptor) y arquitectura en tres capas |
+| 2 | Entorno y tipos de datos | GitHub, variables `str`, `int`, `bool` |
+| 3 | Bucles, decisiones, operadores | `while` con contador, `for` con `range()` y `.items()`, `if/elif/else`, contadores `+=` |
+| 4 | Datos y funciones | Tupla `CATEGORIAS`, lista `historial`, funciones con parametros por defecto |
+
+## Estructura del repositorio
+
+```
+bastion-uide/
+├── bastion.py            Codigo fuente del sistema (Python)
+├── webapp/               Aplicacion web funcional
+│   ├── index.html        Interfaz (HTML)
+│   ├── styles.css        Estilos, identidad Blue Nova (CSS)
+│   ├── app.js            Logica e integracion con Pyodide (JavaScript)
+│   ├── favicon.svg       Isotipo (escudo)
+│   └── README.md
+├── documento/            Documento del proyecto en PDF
+├── presentacion/         Presentacion final (PowerPoint y PDF)
+├── diagramas/            Casos de uso, arquitectura y flujo (Raptor)
+├── prototipo/            Prototipo de interfaz de alta fidelidad
+├── autonomos/            Aprendizajes autonomos del periodo, en carpetas
+├── videos/               Enlaces a los videos explicativos (Loom)
+├── README.md
+├── LICENSE
+└── .gitignore
+```
+
+## Documento, presentacion y diagramas
+
+| Entregable | Ubicacion |
+|------------|-----------|
+| Documento del proyecto (PDF) | [`documento/Proyecto_Integrador_BASTION.pdf`](documento/Proyecto_Integrador_BASTION.pdf) |
+| Presentacion (PowerPoint y PDF) | [`presentacion/`](presentacion/) |
+| Diagramas (casos de uso, arquitectura, flujo) | [`diagramas/`](diagramas/) |
+| Prototipo de interfaz | [`prototipo/`](prototipo/) |
 
 ## Videos del entregable
 
@@ -104,6 +149,7 @@ No requiere instalar dependencias externas: usa solo la biblioteca estandar de P
 
 Los videos se alojan en Loom para no superar el limite de 100 MB por archivo de GitHub.
 
-## Licencia
+## Autoria y licencia
 
-MIT License - David Alexander Benz Zambrano - 2026
+Desarrollado por **David Alexander Benz Zambrano** bajo **Blue Nova SAS**.
+Licencia MIT (ver [LICENSE](LICENSE)). 2026.
