@@ -68,6 +68,9 @@ h3{font-family:'DM Sans',sans-serif;font-weight:600;font-size:17px}
 .msg{font-size:13px;min-height:18px}
 .msg.error{color:var(--red)}
 .msg.ok{color:var(--green)}
+.ver-clave{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);
+  cursor:pointer;width:100%;max-width:380px;margin-top:-2px}
+.ver-clave input{width:16px;height:16px;accent-color:var(--vino2);cursor:pointer}
 
 /* App */
 .app{display:flex;flex-direction:column;gap:16px}

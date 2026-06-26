@@ -340,6 +340,11 @@ document.addEventListener("click", (e) => {
 $("#clave-1").addEventListener("keydown", (e) => { if (e.key === "Enter") accionBloqueo(); });
 $("#clave-2").addEventListener("keydown", (e) => { if (e.key === "Enter") accionBloqueo(); });
 $("#buscar").addEventListener("input", render);
+$("#ver-clave").addEventListener("change", (e) => {
+  const tipo = e.target.checked ? "text" : "password";
+  $("#clave-1").type = tipo;
+  $("#clave-2").type = tipo;
+});
 
 // Arrancar
 iniciar();
