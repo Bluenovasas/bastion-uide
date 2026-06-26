@@ -48,6 +48,7 @@ contrasena maestra cuyo hash se almacena con SHA-256, sin depender de la nube.
 |-------------------|-----------|
 | [`bastion.py`](bastion.py) | Codigo fuente completo del sistema (Python) |
 | [`documento/`](documento/) | Documento del proyecto en PDF |
+| [`presentacion/`](presentacion/) | Presentacion final (PowerPoint y PDF) |
 | [`diagramas/`](diagramas/) | Diagramas de funcionalidad (casos de uso, flujo) y de arquitectura |
 | [`prototipo/`](prototipo/) | Prototipo de interfaz de alta fidelidad (HTML, CSS y JS) |
 | [`autonomos/`](autonomos/) | Aprendizajes autonomos del periodo, en carpetas |
