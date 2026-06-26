@@ -5,6 +5,14 @@ Proyecto Integrador - Logica de Programacion - UIDE
 > Tema del proyecto integrador: **El impacto de las nuevas tecnologias en la
 > sociedad: desarrollo y proyeccion de soluciones informaticas.**
 
+## Demo en vivo
+
+La aplicacion funciona en el navegador: el codigo real de `bastion.py` se ejecuta
+con Pyodide (Python sobre WebAssembly), sin servidor. La profe puede entrar,
+usarla y ver en el panel "Consola Python" lo que ocurre por dentro.
+
+**https://bluenovasas.github.io/bastion-uide/webapp/**
+
 ## Datos del proyecto
 
 | Campo | Valor |
@@ -47,6 +55,7 @@ contrasena maestra cuyo hash se almacena con SHA-256, sin depender de la nube.
 | Carpeta / archivo | Contenido |
 |-------------------|-----------|
 | [`bastion.py`](bastion.py) | Codigo fuente completo del sistema (Python) |
+| [`webapp/`](webapp/) | Aplicacion web funcional (ejecuta bastion.py con Pyodide) |
 | [`documento/`](documento/) | Documento del proyecto en PDF |
 | [`presentacion/`](presentacion/) | Presentacion final (PowerPoint y PDF) |
 | [`diagramas/`](diagramas/) | Diagramas de funcionalidad (casos de uso, flujo) y de arquitectura |
