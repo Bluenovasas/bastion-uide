@@ -161,7 +161,7 @@ Tres videos explican el proyecto integrador final.
 |-------|-----------|--------|
 | Video 1 | Recorrido del repositorio y del proyecto completo | https://www.loom.com/share/0a82d91cd93d44e68aa981b50aee1dad |
 | Video 2 | Explicacion de la presentacion, diapositiva por diapositiva | https://www.loom.com/share/cca95f5550dc466b8a9358249820fda2 |
-| Video 3 | Demostracion de la aplicacion web en vivo (Pyodide) | (por publicar) |
+| Video 3 | Demostracion de la aplicacion web en vivo (Pyodide) | https://www.loom.com/share/bf2ec1aef6d9482d8062554b04e23838 |
 
 Los videos del avance previo (Autonomo 2: prototipo, diagrama de flujo y codigo
 en funcionamiento) se conservan en
