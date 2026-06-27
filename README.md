@@ -133,7 +133,7 @@ bastion-uide/
 │   └── README.md
 ├── documento/            Documento del proyecto en PDF
 ├── presentacion/         Presentacion final (PowerPoint y PDF)
-├── manuales/             Manual de Usuario, Manual Tecnico y Guion (PDF)
+├── manuales/             Manual de Usuario y Manual Tecnico (PDF)
 ├── diagramas/            Casos de uso, arquitectura y flujo (Raptor)
 ├── prototipo/            Prototipo de interfaz de alta fidelidad
 ├── autonomos/            Aprendizajes autonomos del periodo, en carpetas
