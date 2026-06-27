@@ -155,8 +155,7 @@ bastion-uide/
 
 ## Videos del entregable
 
-Tres videos explican el proyecto integrador final. Cada uno se preparo con un
-guion escena por escena.
+Tres videos explican el proyecto integrador final.
 
 | Video | Contenido | Enlace |
 |-------|-----------|--------|
