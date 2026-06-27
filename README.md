@@ -160,7 +160,7 @@ guion escena por escena.
 
 | Video | Contenido | Enlace |
 |-------|-----------|--------|
-| Video 1 | Recorrido del repositorio y del proyecto completo | (por publicar) |
+| Video 1 | Recorrido del repositorio y del proyecto completo | https://www.loom.com/share/0a82d91cd93d44e68aa981b50aee1dad |
 | Video 2 | Explicacion de la presentacion, diapositiva por diapositiva | (por publicar) |
 | Video 3 | Demostracion de la aplicacion web en vivo (Pyodide) | (por publicar) |
 
