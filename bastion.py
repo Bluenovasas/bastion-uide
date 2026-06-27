@@ -32,7 +32,7 @@ Descripcion:
 import hashlib   # Genera el hash SHA-256 de la contrasena maestra.
 import json      # Lee y escribe la boveda en formato JSON (persistencia).
 import os        # Verifica si el archivo de la boveda ya existe en el equipo.
-import random    # Elige caracteres al azar para construir la contrasena.
+import secrets   # Aleatoriedad criptograficamente segura para construir la contrasena.
 import string    # Provee los conjuntos de caracteres (letras, digitos).
 import getpass   # Lee la contrasena por teclado sin mostrarla en pantalla.
 import sys       # Permite cerrar el programa de forma limpia.
@@ -341,8 +341,9 @@ def generar_contrasena():
     # Se construye la contrasena caracter por caracter.
     contrasena_generada = ""
     # FOR CON RANGE: se repite tantas veces como la longitud deseada.
+    # secrets.choice usa aleatoriedad criptograficamente segura (apta para seguridad).
     for i in range(longitud_deseada):
-        contrasena_generada += random.choice(alfabeto)
+        contrasena_generada += secrets.choice(alfabeto)
 
     # Se calcula y se muestra la fortaleza de la contrasena resultante.
     fortaleza = calcular_fortaleza(longitud_deseada, tipos_seleccionados)

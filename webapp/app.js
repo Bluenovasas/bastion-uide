@@ -38,7 +38,7 @@ def web_generar(longitud, upper, lower, num, sym):
     if sym:   alfabeto += "!@#$%&*-_=+?."; tipos += 1
     if not alfabeto:
         return _json.dumps({"clave": "", "fortaleza": "-"})
-    clave = "".join(bastion.random.choice(alfabeto) for _ in range(int(longitud)))
+    clave = "".join(bastion.secrets.choice(alfabeto) for _ in range(int(longitud)))
     return _json.dumps({"clave": clave, "fortaleza": bastion.calcular_fortaleza(int(longitud), tipos)})
 
 def web_fortaleza(clave):

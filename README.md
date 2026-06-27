@@ -3,6 +3,12 @@
 Gestor personal de credenciales con generador de contrasenas seguras.
 **Proyecto Integrador - Logica de Programacion - UIDE.**
 
+![Demo](https://img.shields.io/badge/demo-en%20vivo-008AFC?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3-3776AB?style=flat-square&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Pyodide](https://img.shields.io/badge/Pyodide-WebAssembly-119CFF?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-9DFF00?style=flat-square)
+
 > Tema del proyecto integrador: **El impacto de las nuevas tecnologias en la
 > sociedad: desarrollo y proyeccion de soluciones informaticas.**
 
@@ -16,6 +22,12 @@ La aplicacion funciona en el navegador, sin instalar nada. El codigo real de
 `bastion.py` se ejecuta dentro del navegador mediante Pyodide (Python sobre
 WebAssembly), y un panel "Consola Python" muestra en vivo lo que ocurre por
 dentro. La boveda se guarda en el almacenamiento local del navegador.
+
+![Dashboard de BASTION](capturas/bastion_dashboard.png)
+
+El panel "Consola Python" muestra en vivo cada llamada al codigo real de `bastion.py`:
+
+![Consola Python de BASTION](capturas/bastion_consola.png)
 
 ## Stack tecnologico
 
