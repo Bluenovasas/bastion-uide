@@ -155,11 +155,18 @@ bastion-uide/
 
 ## Videos del entregable
 
-| Video | Contenido | Duracion | Enlace |
-|-------|-----------|----------|--------|
-| Video 0 | Explicacion general del repositorio y el prototipo | 2:13 min | https://www.loom.com/share/730d6ef14cd249f590bf2939a9e092c6 |
-| Video 1 | Explicacion del diagrama de flujo en Raptor | 2:41 min | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
-| Video 2 | Demostracion del codigo Python en funcionamiento | 4:24 min | https://www.loom.com/share/a2bdcf658b0049ec8ab9f98a79a68b6f |
+Tres videos explican el proyecto integrador final. Cada uno se preparo con un
+guion escena por escena.
+
+| Video | Contenido | Enlace |
+|-------|-----------|--------|
+| Video 1 | Recorrido del repositorio y del proyecto completo | (por publicar) |
+| Video 2 | Explicacion de la presentacion, diapositiva por diapositiva | (por publicar) |
+| Video 3 | Demostracion de la aplicacion web en vivo (Pyodide) | (por publicar) |
+
+Los videos del avance previo (Autonomo 2: prototipo, diagrama de flujo y codigo
+en funcionamiento) se conservan en
+[`autonomos/autonomo-2-codigo/`](autonomos/autonomo-2-codigo/).
 
 Los videos se alojan en Loom para no superar el limite de 100 MB por archivo de GitHub.
 

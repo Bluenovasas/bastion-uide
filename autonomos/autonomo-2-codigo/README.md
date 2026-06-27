@@ -10,5 +10,16 @@ repositorio:
 |--------|-----------|
 | Codigo fuente | [`../../bastion.py`](../../bastion.py) |
 | Diagrama de flujo (Raptor) | [`../../diagramas/bastion_diagrama.rap`](../../diagramas/) |
-| Video del diagrama de flujo | ver tabla de videos en el README principal |
-| Video del codigo en funcionamiento | ver tabla de videos en el README principal |
+
+## Videos del avance
+
+Los videos grabados durante este avance (prototipo, diagrama de flujo y codigo
+en funcionamiento) se conservan aqui:
+
+| Video | Contenido | Duracion | Enlace |
+|-------|-----------|----------|--------|
+| Video 0 | Explicacion general del repositorio y el prototipo | 2:13 min | https://www.loom.com/share/730d6ef14cd249f590bf2939a9e092c6 |
+| Video 1 | Explicacion del diagrama de flujo en Raptor | 2:41 min | https://www.loom.com/share/6bcada5da58e4e4c9ea3d76b6f34dff9 |
+| Video 2 | Demostracion del codigo Python en funcionamiento | 4:24 min | https://www.loom.com/share/a2bdcf658b0049ec8ab9f98a79a68b6f |
+
+Los videos se alojan en Loom para no superar el limite de 100 MB por archivo de GitHub.
