@@ -134,7 +134,6 @@ bastion-uide/
 ├── documento/            Documento del proyecto en PDF
 ├── presentacion/         Presentacion final (PowerPoint y PDF)
 ├── manuales/             Manual de Usuario, Manual Tecnico y Guion (PDF)
-├── guiones/              Guiones de los tres videos del entregable (PDF)
 ├── diagramas/            Casos de uso, arquitectura y flujo (Raptor)
 ├── prototipo/            Prototipo de interfaz de alta fidelidad
 ├── autonomos/            Aprendizajes autonomos del periodo, en carpetas
@@ -151,7 +150,6 @@ bastion-uide/
 | Documento del proyecto (PDF) | [`documento/Proyecto_Integrador_BASTION.pdf`](documento/Proyecto_Integrador_BASTION.pdf) |
 | Presentacion (PowerPoint y PDF) | [`presentacion/`](presentacion/) |
 | Manual de Usuario y Manual Tecnico (PDF) | [`manuales/`](manuales/) |
-| Guiones de los tres videos (PDF) | [`guiones/`](guiones/) |
 | Diagramas (casos de uso, arquitectura, flujo) | [`diagramas/`](diagramas/) |
 | Prototipo de interfaz | [`prototipo/`](prototipo/) |
 
