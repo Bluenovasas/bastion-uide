@@ -109,7 +109,7 @@ python3 bastion.py
 ```
 
 No requiere dependencias externas: usa solo la biblioteca estandar de Python
-(`hashlib`, `json`, `os`, `random`, `string`, `getpass`, `sys`, `datetime`).
+(`hashlib`, `json`, `os`, `secrets`, `string`, `getpass`, `sys`, `datetime`).
 
 ## Estructuras de programacion (integracion de las 4 unidades)
 
@@ -134,6 +134,7 @@ bastion-uide/
 ├── documento/            Documento del proyecto en PDF
 ├── presentacion/         Presentacion final (PowerPoint y PDF)
 ├── manuales/             Manual de Usuario, Manual Tecnico y Guion (MD y PDF)
+├── guiones/              Guiones de los tres videos del entregable (MD y PDF)
 ├── diagramas/            Casos de uso, arquitectura y flujo (Raptor)
 ├── prototipo/            Prototipo de interfaz de alta fidelidad
 ├── autonomos/            Aprendizajes autonomos del periodo, en carpetas
@@ -150,6 +151,7 @@ bastion-uide/
 | Documento del proyecto (PDF) | [`documento/Proyecto_Integrador_BASTION.pdf`](documento/Proyecto_Integrador_BASTION.pdf) |
 | Presentacion (PowerPoint y PDF) | [`presentacion/`](presentacion/) |
 | Manual de Usuario y Manual Tecnico (PDF) | [`manuales/`](manuales/) |
+| Guiones de los tres videos (PDF) | [`guiones/`](guiones/) |
 | Diagramas (casos de uso, arquitectura, flujo) | [`diagramas/`](diagramas/) |
 | Prototipo de interfaz | [`prototipo/`](prototipo/) |
 
